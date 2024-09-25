@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background-image: url('https://images.unsplash.com/photo-1563051608-32d7d7e4fcb7'); /* Sevgi şəkli burada */
+      background-image: url('https://images.unsplash.com/photo-1541862771-dc6e3b13e23e'); /* Sevgi şəkli burada */
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -22,7 +22,7 @@
       background-color: #ff1744;
       transform: rotate(45deg);
       opacity: 0;
-      animation: explode 1s ease forwards;
+      animation: explode 1s ease-out forwards;
     }
 
     .heart::before,
@@ -47,15 +47,15 @@
 
     @keyframes explode {
       0% {
-        transform: scale(1);
+        transform: scale(0.1) translate(0, 0);
         opacity: 1;
       }
       50% {
-        transform: scale(1.5) translate(-50px, -50px);
+        transform: scale(1) translate(-20px, -20px);
         opacity: 1;
       }
       100% {
-        transform: scale(0) translate(0, 0);
+        transform: scale(0) translate(100px, 100px);
         opacity: 0;
       }
     }
@@ -63,16 +63,16 @@
 </head>
 <body>
   <script>
-    const heartCount = 20;  // Ürək sayını artırmaq və ya azaltmaq üçün
+    const heartCount = 30;  // Ürək sayını artırmaq və ya azaltmaq üçün
     for (let i = 0; i < heartCount; i++) {
       setTimeout(() => {
         const heart = document.createElement('div');
         heart.classList.add('heart');
         heart.style.left = `${Math.random() * 100}vw`;
         heart.style.top = `${Math.random() * 100}vh`;
-        heart.style.animationDuration = `${Math.random() * 1 + 0.5}s`;
+        heart.style.animationDuration = `${Math.random() * 1 + 1}s`;
         document.body.appendChild(heart);
-      }, i * 300); // Partlayışlar ardıcıl olsun
+      }, i * 200); // Partlayışlar ardıcıl olsun
     }
   </script>
 </body>
