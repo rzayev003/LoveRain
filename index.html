@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background-image: url('https://example.com/love-background.jpg'); /* Sevgi şəkli burada */
+      background-image: url('https://images.unsplash.com/photo-1541862771-dc6e3b13e23e'); /* Sevgi şəkli burada */
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -21,8 +21,8 @@
       height: 50px;
       background-color: #ff1744;
       transform: rotate(45deg);
-      animation: explode 2s ease-out infinite;
       opacity: 0;
+      animation: explode 1s ease-out forwards;
     }
 
     .heart::before,
@@ -47,16 +47,16 @@
 
     @keyframes explode {
       0% {
+        transform: scale(0.1) translate(0, 0);
         opacity: 1;
-        transform: scale(0.1) translate(0, 0) rotate(45deg);
       }
       50% {
+        transform: scale(1) translate(-20px, -20px);
         opacity: 1;
-        transform: scale(1.5) translate(-50px, -50px) rotate(45deg);
       }
       100% {
+        transform: scale(0) translate(100px, 100px);
         opacity: 0;
-        transform: scale(0) translate(100px, 100px) rotate(45deg);
       }
     }
   </style>
@@ -70,7 +70,7 @@
         heart.classList.add('heart');
         heart.style.left = `${Math.random() * 100}vw`;
         heart.style.top = `${Math.random() * 100}vh`;
-        heart.style.animationDuration = `${Math.random() * 2 + 1}s`;
+        heart.style.animationDuration = `${Math.random() * 1 + 1}s`;
         document.body.appendChild(heart);
       }, i * 200); // Partlayışlar ardıcıl olsun
     }
