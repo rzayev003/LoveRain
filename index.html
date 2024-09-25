@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Rain</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: pink;
+    }
+
+    .heart {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: fall 5s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -5px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 5px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10px;
+        left: calc(100% * var(--i));
+        opacity: 1;
+      }
+      100% {
+        top: 100vh;
+        left: calc(100% * var(--i));
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const heartCount = 100;
+    for (let i = 0; i < heartCount; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.setProperty('--i', Math.random());
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDuration = `${Math.random() * 2 + 3}s`;
+      heart.style.animationDelay = `${Math.random() * 5}s`;
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
